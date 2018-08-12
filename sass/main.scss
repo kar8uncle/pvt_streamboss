@@ -16,7 +16,7 @@
             overflow: hidden;
     
             $GRADIENT_START_COLOR: custom_field('queue_gradient_start');
-            $GRADIENT_END_COLOR: custom_field('queue_gradient_start');
+            $GRADIENT_END_COLOR: custom_field('queue_gradient_end');
             $GRADIENT_DIRECTION: custom_field('queue_gradient_direction') + deg;
             background: linear-gradient($GRADIENT_DIRECTION, $GRADIENT_START_COLOR, $GRADIENT_END_COLOR);
             
