@@ -77,7 +77,7 @@
             .addClass('nuisance_effect')
             .append(['ring', 'blast', 'confetti']
                         .map(className => $('<div></div>')
-                                            .addClass([className, 'animate'])
+                                            .addClass([className, 'animate'].join(' '))
                                             .css({ 'background-color' : counterFxColors[0] })
                    )
             )
