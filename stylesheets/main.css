@@ -279,12 +279,25 @@
 
 /* line 5, ../sass/main.scss */
 #wrap {
+  padding: 30%;
+}
+/* line 7, ../sass/main.scss */
+#wrap #main {
   padding-bottom: 20%;
   height: 0;
-  position: relative;
+  position: absolute;
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
-/* line 8, ../sass/main.scss */
-#wrap .queue_bg {
+/* line 11, ../sass/main.scss */
+#wrap #main .queue_bg {
   position: absolute;
   box-sizing: border-box;
   width: 100%;
@@ -295,8 +308,8 @@
   border: {queue_inner_border_color} 5px solid;
   box-shadow: {queue_outer_border_color} 5px 5px 0;
 }
-/* line 26, ../sass/main.scss */
-#wrap .queue_bg .dotted_bg {
+/* line 29, ../sass/main.scss */
+#wrap #main .queue_bg .dotted_bg {
   position: absolute;
   width: 500%;
   height: 500%;
