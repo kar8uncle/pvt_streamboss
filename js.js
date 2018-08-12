@@ -56,7 +56,10 @@
         // and we want to just stop that and start over
         let $nuisanceQueue = $('#nuisance_queue').removeClass('animate');
         
-        delay(1).then(() => $nuisanceQueue.addClass('animate'));
+        // trigger reflows, without this adding class right after removing won't work
+        $nuisanceQueue[0].offsetWidth;
+
+        $nuisanceQueue.addClass('animate');
     }
     
     function playDamageSoundEffect(damage) {
