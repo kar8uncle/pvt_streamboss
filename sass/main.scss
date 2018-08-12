@@ -30,7 +30,7 @@
 
             $DOT_SIZE: custom_field('dotted_bg_dot_size') + px;
             $DOT_SPACING: custom_field('dotted_bg_dot_spacing') + px;
-            $DOT_DISTANCE: calc($DOT_SIZE + $DOT_SPACING);
+            $DOT_DISTANCE: calc(#{$DOT_SIZE} + #{$DOT_SPACING});
             background: linear-gradient(90deg, black $DOT_SPACING, transparent 0%) center,
                         linear-gradient(       black $DOT_SPACING, transparent 0%) center,
                         white;

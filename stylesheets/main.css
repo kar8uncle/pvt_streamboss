@@ -301,7 +301,7 @@
   width: 100vw;
   height: 100vh;
   background: linear-gradient(90deg, black {dotted_bg_dot_spacing}px, transparent 0%) center, linear-gradient(black {dotted_bg_dot_spacing}px, transparent 0%) center, white;
-  background-size: calc($DOT_SIZE + $DOT_SPACING) calc($DOT_SIZE + $DOT_SPACING);
+  background-size: calc({dotted_bg_dot_size}px + {dotted_bg_dot_spacing}px) calc({dotted_bg_dot_size}px + {dotted_bg_dot_spacing}px);
   transform: translate(-50%, -50%) rotate(30deg);
   mix-blend-mode: screen;
   opacity: 0.8;
