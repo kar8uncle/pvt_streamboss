@@ -1,0 +1,76 @@
+@import "utils.scss";
+@import "nuisance/*.png";
+
+$NUISANCE_TYPE_COUNT: 6;
+$RECALC_DURATION: custom_field('queue_recalc_anim_duration') + ms;
+$NUISANCE_ICON_NORMAL_SIZE: 72px;
+
+.nuisance {
+    /* vertically centering nuisance */
+    @include valign;
+
+    /* each .nuisance is fixed size, but the nuisance *
+     * image can be bigger than that and overflows    */
+    overflow: visible;
+
+    /* width of the queue can change during recalc animation, *
+     * so let's rely on the height and use aspect ratio to    *
+     * maintain the dimension of nuisance                     */
+    height: 100%;
+
+    & > [class^=nuisance-type-] {
+        @include inline-sprite($nuisance-sprites);
+        background-repeat: no-repeat;
+    }
+
+    @for $type from 0 through $NUISANCE_TYPE_COUNT {
+        .nuisance-type-#{$type} {
+            $image-width:  image-width(sprite-file($nuisance-sprites, $type));
+            $image-height: image-height(sprite-file($nuisance-sprites, $type));
+
+            background-position: sprite-position($nuisance-sprites, $type, 0, 0, true);
+            background-size: sprite-width($nuisance-sprites) / $image-width * 100%;
+
+            /* such that the wrapper div has the same size as the inner svg, *
+             * which is used to maintain the aspect ratio.                   */
+            display: inline-block;
+
+            /* adjusts positioning (specifically for comet) so that *
+             * it is vertically centered in the queue               */
+            margin-top: -($image-height - $NUISANCE_ICON_NORMAL_SIZE) / $image_height / 2 * 100%;
+
+            svg {
+                /* TODO: the aspect ratio is hardcoded in html */
+                height: $image-height / $NUISANCE_ICON_NORMAL_SIZE * 100%;
+            }
+        }
+    }
+}
+
+.nuisance_effect, #nuisance_queue {
+    /* 6 nuisance to be displayed, 1 line, *
+     * nuisance icons are always squares   */
+    @include aspect_ratio(6, 1);
+
+    /* on recalc animation, the queue resizes,             *
+     * this keeps the queue in the center of its container */
+    @include halign;
+
+    /* visually vertically centers icons in queue */
+    @include valign;
+
+    /* leaves room on both sides of the queue *
+     * so the icons look better contained     */
+    width: 95%;
+}
+
+@keyframes queue_recalc {
+    from { width: 100%; }
+    to   { width: 0;    }
+}
+
+#nuisance_queue {
+    &.animate {
+        animation: queue_recalc $RECALC_DURATION alternate 2 linear;
+    }
+}

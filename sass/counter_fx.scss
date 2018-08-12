@@ -1,0 +1,84 @@
+@import "utils.scss";
+@import "counter_fx/*.png";
+
+.ring, .blast, .confetti {
+    @include valign;
+    @include halign;
+
+    mix-blend-mode: screen;
+    background-blend-mode: multiply;
+    opacity: 0;
+
+    @include inline-sprite($counter_fx-sprites);
+    background-repeat: no-repeat;
+}
+
+@each $className in ring, blast, confetti {
+    .#{$className} {
+        background-position: sprite-position($counter_fx-sprites, $className, 0, 0, true);
+        width:  image-width(sprite-file($counter_fx-sprites, $className));
+        height: image-height(sprite-file($counter_fx-sprites, $className));
+    }
+}
+
+@keyframes ring_fx {
+    from {
+        transform: rotate(0) scale(0.5);
+        opacity: 0.6;
+        filter: brightness(100%);
+    }
+    40% {
+        filter: brightness(150%);
+    }
+    to {
+        transform: rotate(90deg) scale(2.3);
+        opacity: 0;
+        filter: blur(5px) brightness(100%);
+    }
+}
+
+.ring.animate {
+    $RING_DURATION: custom_field('counter_effect_ring_duration') + ms;
+    animation: ring_fx $RING_DURATION ease-out;
+}
+
+@keyframes blast_fx {
+    from {
+        transform: rotate(0deg) scale(0.8);
+        opacity: 1;
+        filter: blur(15px) brightness(100%);
+    }
+
+    40% {
+        opacity: 0.6;
+        filter: blur(15px) brightness(200%);
+    }
+
+    to {
+        transform: rotate(90deg) scale(1.5);
+        opacity: 0;
+        filter: blur(20px) brightness(100%);
+    }
+}
+
+.blast.animate {
+    $BLAST_DURATION: custom_field('counter_effect_blast_duration') + ms;
+    animation: blast_fx $BLAST_DURATION ease-out;
+}
+
+@keyframes confetti_fx {
+    from {
+        transform: scale(0.3);
+        opacity: 0.7;
+    }
+    to {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.confetti.animate {
+    $CONFETTI_DURATION: custom_field('counter_effect_confetti_duration') + ms;
+    animation: confetti_fx $CONFETTI_DURATION ease-out;
+}
+
