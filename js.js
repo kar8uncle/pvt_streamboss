@@ -61,7 +61,7 @@
     
     function playDamageSoundEffect(damage) {
         let soundId = soundFxMap.findIndex(min => damage >= min);
-        if (soundId !== undefined) {
+        if (soundId !== -1) {
             // soundId can be undefined(not found) if damage is not worth playing a sound,
             // that is, when damage < minimum minimum
             
