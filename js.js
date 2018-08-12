@@ -89,7 +89,7 @@
 
     function recalculate(prevCount, currCount) {
         delay(0).then(() => displayQueueRecalcAnimation());
-        let damage = currCount - prevCount;
+        let damage = prevCount - currCount;
         if (damage != 0) {
             delay(160).then(() => displayAttackEffect(damage));
             delay(80).then(() => playDamageSoundEffect(damage));
@@ -102,13 +102,13 @@
         bossInfo => customSettings = bossInfo.detail.settings.custom_json
     );
     document.addEventListener('bossLoad', 
-        bossInfo => recalculate(0, currentHealth = bossInfo.detail.current_health)
+        bossInfo => recalculate(0, currentHealth = +bossInfo.detail.current_health)
     );
     document.addEventListener('bossDamaged',
-        bossInfo => recalculate(currentHealth, currentHealth = bossInfo.detail.current_health)
+        bossInfo => recalculate(currentHealth, currentHealth = +bossInfo.detail.current_health)
     );
     document.addEventListener('bossKilled',
-        bossInfo => recalculate(currentHealth, currentHealth = bossInfo.detail.current_health)
+        bossInfo => recalculate(currentHealth, currentHealth = +bossInfo.detail.current_health)
     );
 
 })();
