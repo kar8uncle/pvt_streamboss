@@ -298,8 +298,8 @@
 /* line 26, ../sass/main.scss */
 #wrap .queue_bg .dotted_bg {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+  width: 500%;
+  height: 500%;
   background: linear-gradient(90deg, black {dotted_bg_dot_spacing}px, transparent 0%) center, linear-gradient(black {dotted_bg_dot_spacing}px, transparent 0%) center, white;
   background-size: calc({dotted_bg_dot_size}px + {dotted_bg_dot_spacing}px) calc({dotted_bg_dot_size}px + {dotted_bg_dot_spacing}px);
   transform: translate(-50%, -50%) rotate(30deg);
