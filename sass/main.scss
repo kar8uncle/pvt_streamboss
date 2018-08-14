@@ -3,16 +3,18 @@
 @import "utils.scss";
 
 #wrap {
-    padding: 30%;
+    width: 100%;
+    height: 100%;
+    position: relative;
     #main {
         @include aspect_ratio(100, 20);
         @include valign;
-        @include halign;
+        left: 0; right: 0;
+        margin-left: 5px; margin-right: 5px; 
         .queue_bg {
-            position: absolute;
             box-sizing: border-box;
-            width: 100%;
             height: 100%;
+            @include halign;
             overflow: hidden;
     
             $GRADIENT_START_COLOR: custom_field('queue_gradient_start');
