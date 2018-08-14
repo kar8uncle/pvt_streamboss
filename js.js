@@ -21,15 +21,35 @@
         // with index being sound effect type,
         // value is the minimum required to trigger the corresponding sound fx
         // e.g. #sound-fx-type-0 is the sound fx file for strongest attack
+        // 
+        // to be overridden by custom fields
         var soundFxMap = [20, 16, 8, 4, 1];
+        var soundFxVolume = 0;
     }
 
     {
-        var counterFxColors = ['red', 'orange', 'green', 'blue', 'purple'];
+        // TODO: allow customizing color of counter effect
+        var counterFxColors = ['white'];
     }
 
     {
-        var customSettings = {};
+        var timingFieldsMapping = {
+            'attackFxDelay' : 'counter_effect_delay',
+            'soundFxDelay'  : 'sound_effect_delay',
+            'symbolUpdateDelay' : 'nuisance_icon_update_delay',
+        }
+        var timing = {};
+    }
+
+    function populateCustomFields(fields) {
+        // range(n) => [0, 1, ..., n - 1] 
+        let range = end => Array.from(Array(end)).map((_, idx) => idx);
+        // map({ 'foo' : 'bar', 'foobar' : 'barfoo' }) => { 'foo' : fields['bar'].value, 'foobar' : fields['barfoo'].value }
+        let map = mapping => Object.keys(mapping).reduce((obj, elm) => (obj[elm] = fields[mapping[elm]].value, obj), {});
+        
+        soundFxMap = range(soundFxMap.length).map(n => fields['minimum_damage_' + n].value);
+        soundFxVolume = fields['sound_fx_volume'].value;
+        timing = map(timingFieldsMapping);
     }
 
     function updateSymbols(nuisanceCount) {
@@ -70,7 +90,7 @@
             
             // cloning to allow overlapping sound effects
             let audioElm = $('audio[id^=sound-fx-type-]')[soundId].cloneNode(true);
-            audioElm.volume = 0.3;
+            audioElm.volume = soundFxVolume;
             audioElm.play();
         }
     }
@@ -91,27 +111,27 @@
     }
 
     function recalculate(prevCount, currCount) {
-        delay(0).then(() => displayQueueRecalcAnimation());
+        delay(0).then(displayQueueRecalcAnimation);
         let damage = prevCount - currCount;
         if (damage != 0) {
-            delay(160).then(() => displayAttackEffect(damage));
-            delay(80).then(() => playDamageSoundEffect(damage));
+            delay(timing.attackFxDelay).then(() => displayAttackEffect(damage));
+            delay(timing.soundFxDelay).then(() => playDamageSoundEffect(damage));
         }
-        delay(150).then(() => updateSymbols(currCount));
+        delay(timing.symbolUpdateDelay).then(() => updateSymbols(currCount));
     }
 
     let currentHealth = 0;
     document.addEventListener('bossLoad', 
-        bossInfo => customSettings = bossInfo.detail.settings.custom_json
+        bossInfo => populateCustomFields(bossInfo.detail.settings.custom_json)
     );
     document.addEventListener('bossLoad', 
         bossInfo => recalculate(0, currentHealth = +bossInfo.detail.current_health)
     );
     document.addEventListener('bossDamaged',
-        bossInfo => recalculate(currentHealth, currentHealth = +bossInfo.detail.current_health)
+        bossInfo => recalculate(currentHealth, currentHealth = bossInfo.detail.boss.current_health)
     );
     document.addEventListener('bossKilled',
-        bossInfo => recalculate(currentHealth, currentHealth = +bossInfo.detail.current_health)
+        bossInfo => recalculate(currentHealth, currentHealth = bossInfo.detail.boss.current_health)
     );
 
 })();
