@@ -1,0 +1,178 @@
+{
+    "queue_gradient_start": {
+        "label": "Nuisance Queue BG Gradient Start Color",
+        "type": "colorpicker",
+        "value": "purple"
+    },
+    "queue_gradient_end": {
+        "label": "Nuisance Queue BG Gradient End Color",
+        "type": "colorpicker",
+        "value": "orange"
+    },
+    "queue_gradient_direction": {
+        "label": "Nuisance Queue BG Gradient Angle (deg)",
+        "type": "slider",
+        "value": 320,
+        "max": 360,
+        "min": 0,
+        "steps": 10
+    },
+    "queue_inner_border_color": {
+        "label": "Nuisance Queue Inner Border Color",
+        "type": "colorpicker",
+        "value": "white"
+    },
+    "queue_outer_border_color": {
+        "label": "Nuisance Queue Outer Border Color",
+        "type": "colorpicker",
+        "value": "grey"
+    },
+    "queue_recalc_anim_duration": {
+        "label": "Nuisance One-way Recalculation Animation Duration (ms)",
+        "type": "slider",
+        "value": 180,
+        "max": 200,
+        "min": 100,
+        "steps": 10
+    },
+    "nuisance_icon_update_delay": {
+        "label": "Nuisance Icon Update Delay (ms)",
+        "type": "slider",
+        "value": 150,
+        "max": 200,
+        "min": 100,
+        "steps": 10
+    },
+    "sound_effect_delay": {
+        "label": "Sound Effect Delay (ms)",
+        "type": "slider",
+        "value": 100,
+        "max": 200,
+        "min": 100,
+        "steps": 10
+    },
+    "counter_effect_delay": {
+        "label": "Counter Effect Delay (ms)",
+        "type": "slider",
+        "value": 160,
+        "max": 200,
+        "min": 100,
+        "steps": 10
+    },
+    "counter_effect_ring_duration": {
+        "label": "Counter Effect Ring Duration (ms)",
+        "type": "slider",
+        "value": 600,
+        "max": 1000,
+        "min": 0,
+        "steps": 10
+    },
+    "counter_effect_blast_duration": {
+        "label": "Counter Effect Blast Duration (ms)",
+        "type": "slider",
+        "value": 600,
+        "max": 1000,
+        "min": 0,
+        "steps": 100
+    },
+    "counter_effect_confetti_duration": {
+        "label": "Counter Effect Confetti Duration (ms)",
+        "type": "slider",
+        "name": "",
+        "value": 400,
+        "max": 1000,
+        "min": 0,
+        "steps": 100
+    },
+    "dotted_bg_dot_size": {
+        "label": "Dotted Background Dot Size (px)",
+        "type": "slider",
+        "name": "",
+        "value": 3,
+        "max": 20,
+        "min": 0,
+        "steps": 1
+    },
+    "dotted_bg_dot_spacing": {
+        "label": "Dotted Background Dot Spacing (px)",
+        "type": "slider",
+        "name": "",
+        "value": 5,
+        "max": 10,
+        "min": 0,
+        "steps": 1
+    },
+    "counter_sound_fx_0": {
+        "label": "Counter Sound Effect (Strongest)",
+        "type": "sound-input",
+        "value": "https://uploads.twitchalerts.com/000/062/331/806/strongest.wav"
+    },
+    "minimum_damage_0": {
+        "label": "Minimum Triggering Damage (Strongest)",
+        "type": "slider",
+        "value": 20,
+        "max": 100,
+        "min": 0,
+        "steps": 5
+    },
+    "counter_sound_fx_1": {
+        "label": "Counter Sound Effect (Strong)",
+        "type": "sound-input",
+        "value": "https://uploads.twitchalerts.com/000/062/331/806/strong.wav"
+    },
+    "minimum_damage_1": {
+        "label": "Minimum Triggering Damage (Strong)",
+        "type": "slider",
+        "value": 15,
+        "max": 100,
+        "min": 0,
+        "steps": 5
+    },
+    "counter_sound_fx_2": {
+        "label": "Counter Sound Effect (Mild)",
+        "type": "sound-input",
+        "value": "https://uploads.twitchalerts.com/000/062/331/806/mild.wav"
+    },
+    "minimum_damage_2": {
+        "label": "Minimum Triggering Damage (Mild)",
+        "type": "slider",
+        "value": 8,
+        "max": 100,
+        "min": 0,
+        "steps": 5
+    },
+    "counter_sound_fx_3": {
+        "label": "Counter Sound Effect (Weak)",
+        "type": "sound-input",
+        "value": "https://uploads.twitchalerts.com/000/062/331/806/weak.wav"
+    },
+    "minimum_damage_3": {
+        "label": "Minimum Triggering Damage (Weak)",
+        "type": "slider",
+        "value": 4,
+        "max": 100,
+        "min": 0,
+        "steps": 5
+    },
+    "counter_sound_fx_4": {
+        "label": "Counter Sound Effect (Weakest)",
+        "type": "sound-input",
+        "value": "https://uploads.twitchalerts.com/000/062/331/806/weakest.wav"
+    },
+    "minimum_damage_4": {
+        "label": "Minimum Triggering Damage (Weakest)",
+        "type": "slider",
+        "value": 1,
+        "max": 100,
+        "min": 0,
+        "steps": 5
+    },
+    "sound_fx_volume": {
+        "label": "Sound Effect Volume (Percentage / 100)",
+        "type": "slider",
+        "value": 0.3,
+        "max": 1,
+        "min": 0,
+        "steps": 0.1
+    }
+}
