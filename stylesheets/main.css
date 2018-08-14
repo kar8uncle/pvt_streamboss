@@ -245,16 +245,16 @@
   from {
     transform: rotate(0deg) scale(0.8);
     opacity: 1;
-    filter: blur(15px) brightness(100%);
+    filter: blur(1px) brightness(100%);
   }
   40% {
     opacity: 0.6;
-    filter: blur(15px) brightness(200%);
+    filter: blur(2px) brightness(200%);
   }
   to {
     transform: rotate(90deg) scale(1.5);
     opacity: 0;
-    filter: blur(20px) brightness(100%);
+    filter: blur(1px) brightness(100%);
   }
 }
 /* line 64, ../sass/counter_fx.scss */
