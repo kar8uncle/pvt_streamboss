@@ -43,7 +43,7 @@
 
     function populateCustomFields(fields) {
         // range(n) => [0, 1, ..., n - 1] 
-        let range = end => Array.from(Array(end)).map((_, idx) => idx);
+        let range = end => Array.from(Array(end), (_, idx) => idx);
         // map({ 'foo' : 'bar', 'foobar' : 'barfoo' }) => { 'foo' : fields['bar'].value, 'foobar' : fields['barfoo'].value }
         let map = mapping => Object.keys(mapping).reduce((obj, elm) => (obj[elm] = fields[mapping[elm]].value, obj), {});
         
