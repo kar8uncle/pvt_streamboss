@@ -113,7 +113,7 @@
     function recalculate(prevCount, currCount) {
         delay(0).then(displayQueueRecalcAnimation);
         let damage = prevCount - currCount;
-        if (damage != 0) {
+        if (prevCount != 0 && damage != 0) {
             delay(timing.attackFxDelay).then(() => displayAttackEffect(damage));
             delay(timing.soundFxDelay).then(() => playDamageSoundEffect(damage));
         }
