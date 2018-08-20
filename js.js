@@ -53,7 +53,7 @@
     }
 
     function updateSymbols(nuisanceCount) {
-        $('.nuisance > div').each(function() {
+        $('.nuisance > img').each(function() {
             let $this = $(this).removeClass();
             
             if (nuisanceCount == 0) {
@@ -101,8 +101,12 @@
             .append(['ring', 'blast', 'confetti']
                         .map(className => $('<div></div>')
                                             .addClass([className, 'animate'].join(' '))
-                                            .css({ 'background-color' : counterFxColors[0] })
-                   )
+                                            .append(
+                                                $('<img>')
+                                                    .css({ 'background-color' : counterFxColors[0] })
+                                                    .addClass(className)
+                                            )
+                        )
             )
             .appendTo($('#wrap'));
 

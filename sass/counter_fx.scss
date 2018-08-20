@@ -1,26 +1,20 @@
 @import "utils.scss";
-@import "counter_fx/*.png";
 
 .ring, .blast, .confetti {
     @include valign;
     @include halign;
+}
 
-    mix-blend-mode: screen;
-    background-blend-mode: multiply;
+div.ring, div.blast, div.confetti {
     opacity: 0;
-
-    @include inline-sprite($counter_fx-sprites);
-    background-repeat: no-repeat;
+    mix-blend-mode: screen;
 }
 
 @each $className in ring, blast, confetti {
-    .#{$className} {
-        $image-width:  image-width(sprite-file($counter_fx-sprites, $className));
-        $image-height: image-height(sprite-file($counter_fx-sprites, $className));
-
-        @include aspect_ratio($image-width, $image-height);
-        background-position: sprite-position($counter_fx-sprites, $className, 0, 0, true);
-        background-size: sprite-width($counter_fx-sprites) / $image-width * 100%;
+    img.#{$className} {
+        content: url64('../images/counter_fx/' + $className + '.png');
+        background-blend-mode: multiply;
+        width: 100%;
     }
 }
 
@@ -40,12 +34,9 @@
     }
 }
 
-.ring {
-    width: 100%;
-    &.animate {
-        $RING_DURATION: custom_field('counter_effect_ring_duration') + ms;
-        animation: ring_fx $RING_DURATION ease-out;
-    }
+div.ring.animate {
+    $RING_DURATION: custom_field('counter_effect_ring_duration') + ms;
+    animation: ring_fx $RING_DURATION ease-out;
 }
 
 @keyframes blast_fx {
@@ -67,12 +58,9 @@
     }
 }
 
-.blast {
-    width: 100%;
-    &.animate {
-        $BLAST_DURATION: custom_field('counter_effect_blast_duration') + ms;
-        animation: blast_fx $BLAST_DURATION ease-out;
-    }
+div.blast.animate {
+    $BLAST_DURATION: custom_field('counter_effect_blast_duration') + ms;
+    animation: blast_fx $BLAST_DURATION ease-out;
 }
 
 @keyframes confetti_fx {
@@ -86,11 +74,8 @@
     }
 }
 
-.confetti {
-    width: 100%;
-    &.animate {
-        $CONFETTI_DURATION: custom_field('counter_effect_confetti_duration') + ms;
-        animation: confetti_fx $CONFETTI_DURATION ease-out;
-    }
+div.confetti.animate {
+    $CONFETTI_DURATION: custom_field('counter_effect_confetti_duration') + ms;
+    animation: confetti_fx $CONFETTI_DURATION ease-out;
 }
 

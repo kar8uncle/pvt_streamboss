@@ -1,13 +1,26 @@
-.PHONY: all test
+.PHONY: all test clean
+ARTIFACTS=html.html js.js css.css custom_fields.json
 
-all: html.html js.js custom_fields.json main.css
+SASS=sass
+SASS_FLAGS=-r ./sass/functions/url64.rb
+SASS_DIR=sass
+SCSS=$(wildcard $(SASS_DIR)/*.scss)
+MAIN_SCSS=$(SASS_DIR)/main.scss
 
-test: output.html
+DEMO_ASM=./assembleDemo
+DEMO=output.html
+
+all: $(ARTIFACTS)
+
+test: $(DEMO)
 	open $^
 
-output.html: all 
-	./compile html.html --css main.css --js js.js --fields custom_fields.json -o $@
+clean:
+	rm -f css.css
+	git clean -fxd
 
-main.css: sass
-	compass compile .
-	cp stylesheets/main.css .
+$(DEMO): $(ARTIFACTS)
+	$(DEMO_ASM) html.html --css css.css --js js.js --fields custom_fields.json -o $@
+
+css.css: $(SCSS)
+	$(SASS) $(MAIN_SCSS) $@ $(SASS_FLAGS)

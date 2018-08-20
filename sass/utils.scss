@@ -2,12 +2,6 @@
     @return unquote("{" + $field_name + "}")
 }
 
-@mixin inline-sprite($map) {
-    $sprite_file: split-filename(sprite-path($map));
-    $sprite_filename: nth($sprite_file, 2) + nth($sprite_file, 3);
-    background-image: inline-image($sprite_filename);
-}
-
 @mixin aspect_ratio($width, $height) {
     padding-bottom: $height / $width * 100%;
     height: 0;
@@ -22,5 +16,5 @@
 @mixin valign {
     position: absolute;
     margin-top: auto; margin-bottom: auto;
-    top: 0; bottom: 0;
+    top: -100%; bottom: -100%;
 }

@@ -1,5 +1,4 @@
 @import "utils.scss";
-@import "nuisance/*.png";
 
 $NUISANCE_TYPE_COUNT: 6;
 $RECALC_DURATION: custom_field('queue_recalc_anim_duration') + ms;
@@ -18,31 +17,14 @@ $NUISANCE_ICON_NORMAL_SIZE: 72px;
      * maintain the dimension of nuisance                     */
     height: 100%;
 
-    & > [class^=nuisance-type-] {
-        @include inline-sprite($nuisance-sprites);
-        background-repeat: no-repeat;
-    }
-
     @for $type from 0 through $NUISANCE_TYPE_COUNT {
         .nuisance-type-#{$type} {
-            $image-width:  image-width(sprite-file($nuisance-sprites, $type));
-            $image-height: image-height(sprite-file($nuisance-sprites, $type));
+            content: url64('../images/nuisance/' + $type + '.png');
+            // hate to do this but the reality is, comet is bigger
+            height: if($type == 0, calc(110 / 72 * 100%), 100%);
+            position: absolute;
 
-            background-position: sprite-position($nuisance-sprites, $type, 0, 0, true);
-            background-size: sprite-width($nuisance-sprites) / $image-width * 100%;
-
-            /* such that the wrapper div has the same size as the inner svg, *
-             * which is used to maintain the aspect ratio.                   */
-            display: inline-block;
-
-            /* adjusts positioning (specifically for comet) so that *
-             * it is vertically centered in the queue               */
-            margin-top: -($image-height - $NUISANCE_ICON_NORMAL_SIZE) / $image_height / 2 * 100%;
-
-            svg {
-                /* TODO: the aspect ratio is hardcoded in html */
-                height: $image-height / $NUISANCE_ICON_NORMAL_SIZE * 100%;
-            }
+            @include valign;
         }
     }
 }
