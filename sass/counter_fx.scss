@@ -7,13 +7,11 @@
 
 div.ring, div.blast, div.confetti {
     opacity: 0;
-    mix-blend-mode: screen;
 }
 
 @each $className in ring, blast, confetti {
     img.#{$className} {
         content: url64('../images/counter_fx/' + $className + '.png');
-        background-blend-mode: multiply;
         width: 100%;
     }
 }

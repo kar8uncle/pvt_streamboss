@@ -103,7 +103,6 @@
                                             .addClass([className, 'animate'].join(' '))
                                             .append(
                                                 $('<img>')
-                                                    .css({ 'background-color' : counterFxColors[0] })
                                                     .addClass(className)
                                             )
                         )
