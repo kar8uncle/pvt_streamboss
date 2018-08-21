@@ -41,6 +41,10 @@
         var timing = {};
     }
 
+    {
+        var nuisanceStyle = 'puyo';
+    }
+
     function populateCustomFields(fields) {
         // range(n) => [0, 1, ..., n - 1] 
         let range = end => Array.from(Array(end), (_, idx) => idx);
@@ -50,6 +54,7 @@
         soundFxMap = range(soundFxMap.length).map(n => fields['minimum_damage_' + n].value);
         soundFxVolume = fields['sound_fx_volume'].value;
         timing = map(timingFieldsMapping);
+        nuisanceStyle = fields['nuisance_icon_style'].value;
     }
 
     function updateSymbols(nuisanceCount) {
@@ -63,7 +68,7 @@
             for (let type = 0; type < garbageMap.length; ++type) {
                 let symbolRepr = garbageMap[type];
                 if (nuisanceCount >= symbolRepr) {
-                    $this.addClass('nuisance-type-' + type);
+                    $this.addClass(['nuisance-type-' + type, nuisanceStyle].join(' '));
                     nuisanceCount -= symbolRepr;
                     return;
                 }
@@ -101,10 +106,7 @@
             .append(['ring', 'blast', 'confetti']
                         .map(className => $('<div></div>')
                                             .addClass([className, 'animate'].join(' '))
-                                            .append(
-                                                $('<img>')
-                                                    .addClass(className)
-                                            )
+                                            .append($('<img>').addClass(className))
                         )
             )
             .appendTo($('#wrap'));

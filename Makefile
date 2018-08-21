@@ -2,25 +2,25 @@
 ARTIFACTS=html.html js.js css.css custom_fields.json
 
 SASS=sass
-SASS_FLAGS=-r ./sass/functions/url64.rb
+SASS_FLAGS=-r ./sass/functions/url64.rb -r ./sass/functions/png-dimen.rb
 SASS_DIR=sass
 SCSS=$(wildcard $(SASS_DIR)/*.scss)
 MAIN_SCSS=$(SASS_DIR)/main.scss
+CSS_ARTIFACT=css.css
 
 DEMO_ASM=./assembleDemo
-DEMO=output.html
+DEMO_ARTIFACT=output.html
 
 all: $(ARTIFACTS)
 
-test: $(DEMO)
+test: $(DEMO_ARTIFACT)
 	open $^
 
 clean:
-	rm -f css.css
-	git clean -fxd
+	rm -f $(CSS_ARTIFACT) $(DEMO_ARTIFACT)
 
-$(DEMO): $(ARTIFACTS)
+$(DEMO_ARTIFACT): $(ARTIFACTS)
 	$(DEMO_ASM) html.html --css css.css --js js.js --fields custom_fields.json -o $@
 
-css.css: $(SCSS)
+$(CSS_ARTIFACT): $(SCSS)
 	$(SASS) $(MAIN_SCSS) $@ $(SASS_FLAGS)

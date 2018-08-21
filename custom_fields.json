@@ -43,6 +43,16 @@
         "min": 100,
         "steps": 10
     },
+    "nuisance_icon_style": {
+        "label": "Nuisance Icon Style",
+        "type": "dropdown",
+        "options": {
+            "puyo": "Puyo Puyo",
+            "tetris": "Tetris",
+            "putet": "Fusion"
+        },
+        "value": "puyo"
+    },
     "sound_effect_delay": {
         "label": "Sound Effect Delay (ms)",
         "type": "slider",

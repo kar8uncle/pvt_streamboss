@@ -2,7 +2,7 @@
 
 $NUISANCE_TYPE_COUNT: 6;
 $RECALC_DURATION: custom_field('queue_recalc_anim_duration') + ms;
-$NUISANCE_ICON_NORMAL_SIZE: 72px;
+$NUISANCE_DIR: '../images/nuisance/';
 
 .nuisance {
     /* vertically centering nuisance */
@@ -19,14 +19,29 @@ $NUISANCE_ICON_NORMAL_SIZE: 72px;
 
     @for $type from 0 through $NUISANCE_TYPE_COUNT {
         .nuisance-type-#{$type} {
-            content: url64('../images/nuisance/' + $type + '.png');
-            // hate to do this but the reality is, comet is bigger
-            height: if($type == 0, calc(110 / 72 * 100%), 100%);
             position: absolute;
-
             @include valign;
+
+            @each $nuisance-style in puyo, tetris, putet {
+                &.#{$nuisance-style} {
+                    $icon-path: $NUISANCE_DIR + $nuisance-style + '-' + $type + '.png';
+                    $standard-size: pngheight($NUISANCE_DIR + $nuisance-style + '-' + $NUISANCE_TYPE_COUNT + '.png');
+                    $icon-size: pngheight($icon-path);
+                    content: url64($icon-path);
+                    height: $icon-size / $standard-size * 100%;
+                }
+            }
         }
     }
+}
+
+.queue_wrapper {
+    /* leaves room on both sides of the queue *
+     * so the icons look better contained     */
+    width: 90%;
+
+    @include halign;
+    @include valign;
 }
 
 .nuisance_effect, #nuisance_queue {
@@ -41,9 +56,6 @@ $NUISANCE_ICON_NORMAL_SIZE: 72px;
     /* visually vertically centers icons in queue */
     @include valign;
 
-    /* leaves room on both sides of the queue *
-     * so the icons look better contained     */
-    width: 95%;
 }
 
 @keyframes queue_recalc {
