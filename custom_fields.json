@@ -184,5 +184,14 @@
         "max": 1,
         "min": 0,
         "steps": 0.1
+    },
+    "boss_kill_animation": {
+        "label": "Boss Kill Animation",
+        "type": "dropdown",
+        "options": {
+            "": "None",
+            "pvt_amitie": "PvT Amitie Counter"
+        },
+        "value": "pvt_amitie"
     }
 }

@@ -3,6 +3,30 @@
     const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
     {
+        // character animation DOM elements
+        var animationTree = {
+            'pvt_amitie' : $('<div></div>').addClass(['spell', 'pvt', 'amitie'].join(' '))
+                           .append($('<div></div>').addClass('starry-sky')
+                                  .append($('<div></div>').addClass('stars-1').css({ 'width': '3px', 'height': '3px' }))
+                                  .append($('<div></div>').addClass('stars-2').css({ 'width': '1px', 'height': '1px' }))
+                          ).append($('<div></div>').addClass('contained-wrapper')
+                                  .append($('<div></div>').addClass('contained')
+                                          .append($('<div></div>').addClass('character')
+                                                  .append([['face', 'state-0'], 
+                                                           ['face', 'state-1'],
+                                                           ['right-hand', 'state-1'],
+                                                           ['left-hand', 'state-1'],
+                                                           ['flowers'],
+                                                           ['right-hand', 'state-0'],
+                                                           ['left-hand', 'state-0'],
+                                                          ].map(cls => $('<img>').addClass(cls.join(' '))))
+                                          )
+                                 )
+                          ).append(['outer-magic-circle', 'inner-magic-circle'].map(cls => $('<img>').addClass(cls))),
+        };
+    }
+
+    {
         // initialize garbage->symbol mapping,
         // with index being symbol type,
         // e.g. nuisance-type-0 is class name for comet symbol
@@ -45,6 +69,10 @@
         var nuisanceStyle = 'puyo';
     }
 
+    {
+        var bossKillAnimationKey = '';
+    }
+
     function populateCustomFields(fields) {
         // range(n) => [0, 1, ..., n - 1] 
         let range = end => Array.from(Array(end), (_, idx) => idx);
@@ -55,6 +83,7 @@
         soundFxVolume = fields['sound_fx_volume'].value;
         timing = map(timingFieldsMapping);
         nuisanceStyle = fields['nuisance_icon_style'].value;
+        bossKillAnimationKey = fields['boss_kill_animation'].value;
     }
 
     function updateSymbols(nuisanceCount) {
@@ -117,12 +146,26 @@
 
     function recalculate(prevCount, currCount) {
         delay(0).then(displayQueueRecalcAnimation);
-        let damage = prevCount - currCount;
+        let damage = Math.abs(prevCount - currCount);
         if (prevCount != 0 && damage != 0) {
             delay(timing.attackFxDelay).then(() => displayAttackEffect(damage));
             delay(timing.soundFxDelay).then(() => playDamageSoundEffect(damage));
         }
         delay(timing.symbolUpdateDelay).then(() => updateSymbols(currCount));
+    }
+
+    function killBoss(newCount) {
+        let animationPromise;
+        if (bossKillAnimationKey) {
+            let $treeClone = animationTree[bossKillAnimationKey].clone().appendTo($('#main'));
+            animationPromise = delay(4000).then(() => $treeClone.remove());
+        } else {
+            animationPromise = delay(0);
+        }
+        animationPromise
+            .then(() => recalculate(currentHealth, currentHealth = 0))
+            .then(() => delay(1000))
+            .then(() => recalculate(currentHealth, currentHealth = newCount));
     }
 
     let currentHealth = 0;
@@ -136,7 +179,7 @@
         bossInfo => recalculate(currentHealth, currentHealth = bossInfo.detail.boss.current_health)
     );
     document.addEventListener('bossKilled',
-        bossInfo => recalculate(currentHealth, currentHealth = bossInfo.detail.boss.current_health)
+        bossInfo => killBoss(bossInfo.detail.boss.current_health)
     );
 
 })();

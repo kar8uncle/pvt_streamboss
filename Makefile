@@ -4,7 +4,7 @@ ARTIFACTS=html.html js.js css.css custom_fields.json
 SASS=sass
 SASS_FLAGS=-r ./sass/functions/url64.rb -r ./sass/functions/png-dimen.rb
 SASS_DIR=sass
-SCSS=$(wildcard $(SASS_DIR)/*.scss)
+SCSS=$(wildcard $(SASS_DIR)/*.scss) $(wildcard $(SASS_DIR)/*/*.scss)
 MAIN_SCSS=$(SASS_DIR)/main.scss
 CSS_ARTIFACT=css.css
 

@@ -1,0 +1,250 @@
+@import "../utils.scss";
+
+.spell.pvt.amitie {
+    @include valign;
+    @keyframes pvt_amitie_counter_animation_cutin {
+        0% { height: 0; }
+        15% { height: 100%; }
+        95% { height: 95%; }
+        100% { height: 0; }
+    }
+
+    animation: pvt_amitie_counter_animation_cutin 4s ease,
+               disappear 1s linear 4s infinite;
+
+    .starry-sky {
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+        overflow: hidden;
+
+        &::before {
+            position: absolute;
+            top: 0; bottom: 0; left: 0; right: 0;
+            content: "";
+            background: linear-gradient(180deg, blue, deepskyblue);
+            filter: brightness(25%);
+
+            @keyframes pvt-amitie-bg-bright-up { 
+                0% { filter: brightness(25%); }
+                100% { filter: brightness(100%); }
+            }
+
+            animation: pvt-amitie-bg-bright-up 3s ease-in 1s;
+        }
+
+        [class^=stars-] {
+            position: absolute;
+            top: 0; bottom: 0; left: 0; right: 0;
+            border-radius: 50%;
+
+            @keyframes pvt-amitie-stars-movement {
+                0% { top: 0; }
+                100% { top: -100%; }
+            }
+        }
+
+        @function generate-stars($n) {
+            $list: ();
+            @for $i from 1 through $n {
+                $list: append($list, (#{random(100)}vw #{random(100)}vh white), comma);
+            }
+
+            @return $list
+        }
+
+        @for $i from 1 through 2 {
+            .stars-#{$i} {
+                box-shadow: generate-stars(200);
+                animation: pvt-amitie-stars-movement #{random(50) + 4}s linear infinite;
+            }
+        }
+    }
+
+    $stage-1-duration: 3s;
+    $stage-2-duration: 1s;
+
+    .character {
+        $body-img-path: '../images/spells/pvt/amitie/counter_body.png';
+        @include pseudo_img($body-img-path);
+        @include halign;
+
+        $body-img-width: pngwidth($body-img-path);
+        $body-img-height: pngheight($body-img-path);
+
+        width: 35%;
+        top: 10%;
+
+        @keyframes pvt_amitie_body_movement_1 {
+            0% { top: 100%; }
+            90% { top: -25%; filter: brightness(150%); }
+            100% { top: -20%; filter: brightness(150%); }
+        }
+
+        @keyframes pvt_amitie_body_movement_2 {
+            0% { top: -20%; filter: brightness(150%); }
+            100% { top: 10%; }
+        }
+
+        @keyframes pvt_amitie_body_resize {
+            100% { width: 7%; }
+        }
+
+        animation: pvt_amitie_body_movement_1 $stage-1-duration ease-out,
+                   pvt_amitie_body_movement_2 $stage-2-duration ease-in $stage-1-duration,
+                   pvt_amitie_body_resize $stage-2-duration ease-in $stage-1-duration;
+
+        .face {
+            // these left, top values are handcrafted
+            left: 118px / $body-img-width * 100%;
+            top:  76px / $body-img-height * 100%;
+
+            position: absolute;
+
+            @each $state in 0, 1 {
+                &.state-#{$state} {
+                    $face-img-path: '../images/spells/pvt/amitie/counter_face_' + $state + '.png';
+                    content: url64($face-img-path);
+                    width: pngwidth($face-img-path) / $body-img-width * 100%;
+                    height: pngheight($face-img-path) / $body-img-height * 100%;
+                }
+            }
+            
+            &.state-0 { opacity: 1; }
+            &.state-1 { opacity: 0; animation: appear 1s linear #{$stage-1-duration - 1s} infinite; }
+        }
+
+        .flowers {
+            position: absolute;
+            $flower-img-path: '../images/spells/pvt/amitie/counter_body_flowers.png';
+            content: url64($flower-img-path);
+            width: pngwidth($flower-img-path) / $body-img-width * 100%;
+            height: pngheight($flower-img-path) / $body-img-height * 100%;
+            left: 119px / $body-img-width * 100%;
+            top:  186px / $body-img-height * 100%;
+        }
+
+        $hand-rotation-animation-duration: 0.35s;
+
+        .left-hand.state-0 {
+            position: absolute;
+            $hand-img-path: '../images/spells/pvt/amitie/counter_left_hand_0.png';
+            content: url64($hand-img-path);
+            width: pngwidth($hand-img-path) / $body-img-width * 100%;
+            height: pngheight($hand-img-path) / $body-img-height * 100%;
+            left: 119px / $body-img-width * 100%;
+            top:  178px / $body-img-height * 100%;
+
+            @keyframes pvt_amitie_left_hand_rotation {
+                100% { transform: rotate(-40deg); }
+            }
+
+            transform-origin: bottom right;
+            animation: pvt_amitie_left_hand_rotation $hand-rotation-animation-duration ease-out $stage-1-duration,
+                       disappear 1s linear #{$stage-1-duration + $hand-rotation-animation-duration} infinite;
+        }
+
+        .left-hand.state-1 {
+            position: absolute;
+            $hand-img-path: '../images/spells/pvt/amitie/counter_left_hand_1.png';
+            content: url64($hand-img-path);
+            width: pngwidth($hand-img-path) / $body-img-width * 100%;
+            height: pngheight($hand-img-path) / $body-img-height * 100%;
+            left: 206px / $body-img-width * 100%;
+            top:  211px / $body-img-height * 100%;
+        }
+
+        .right-hand.state-0 {
+            position: absolute;
+            $hand-img-path: '../images/spells/pvt/amitie/counter_right_hand_0.png';
+            content: url64($hand-img-path);
+            width: pngwidth($hand-img-path) / $body-img-width * 100%;
+            height: pngheight($hand-img-path) / $body-img-height * 100%;
+            left: 87px / $body-img-width * 100%;
+            top:  176px / $body-img-height * 100%;
+
+            @keyframes pvt_amitie_right_hand_rotation {
+                100% { transform: rotate(40deg); }
+            }
+
+            transform-origin: bottom left;
+            animation: pvt_amitie_right_hand_rotation $hand-rotation-animation-duration ease-out $stage-1-duration,
+                       disappear 1s linear #{$stage-1-duration + $hand-rotation-animation-duration} infinite;
+        }
+
+        .right-hand.state-1 {
+            position: absolute;
+            $hand-img-path: '../images/spells/pvt/amitie/counter_right_hand_1.png';
+            content: url64($hand-img-path);
+            width: pngwidth($hand-img-path) / $body-img-width * 100%;
+            height: pngheight($hand-img-path) / $body-img-height * 100%;
+            left: -66px / $body-img-width * 100%;
+            top:  211px / $body-img-height * 100%;
+        }
+    }
+
+    .outer-magic-circle {
+        $img-path: '../images/spells/pvt/amitie/counter_outer_magic_circle.png';
+        content: url64($img-path);
+        @include halign;
+        @include valign;
+        opacity: 0;
+
+        @keyframes pvt_amitie_counter_outer_magic_circle_spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+
+        @keyframes pvt_amitie_counter_outer_magic_circle_pre {
+            0% { width: 80%; opacity: 0; }
+            20% { width: 40%; opacity: 0.2; filter: brightness(100%);}
+            80% { width: 23%; opacity: 1; }
+            100% { width: 20%; opacity: 1; filter: brightness(250%);}
+        }
+        
+        @keyframes pvt_amitie_counter_outer_magic_circle_post {
+            0% { width: 20%; opacity: 1; filter: brightness(250%);}
+            40% { opacity: 1; }
+            90% { opacity: 0; }
+            100% { width: 120%; opacity: 0; }
+        }
+
+        animation: pvt_amitie_counter_outer_magic_circle_spin 10s linear infinite,
+                   pvt_amitie_counter_outer_magic_circle_pre $stage-1-duration ease-out,
+                   pvt_amitie_counter_outer_magic_circle_post $stage-2-duration ease-in $stage-1-duration;
+
+    }
+
+    .inner-magic-circle {
+        $img-path: '../images/spells/pvt/amitie/counter_inner_magic_circle.png';
+        content: url64($img-path);
+        @include halign;
+        @include valign;
+        opacity: 0;
+
+        @keyframes pvt_amitie_counter_inner_magic_circle_spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pvt_amitie_counter_inner_magic_circle_pre {
+            0% { width: 64%; opacity: 0; }
+            20% { width: 32%; opacity: 0.5; }
+            50% { opacity: 0.2; }
+            80% { width: 18.4%; opacity: 0; }
+            100% { width: 16%; opacity: 0; }
+        }
+        
+        @keyframes pvt_amitie_counter_inner_magic_circle_post {
+            0% { width: 16%; opacity: 0; }
+            10% { width: 16%; opacity: 0; }
+            20% { width: 18%; opacity: 0.8; }
+            100% { width: 120%; opacity: 0; }
+        }
+
+        animation: pvt_amitie_counter_inner_magic_circle_spin 10s linear infinite,
+                   pvt_amitie_counter_inner_magic_circle_pre $stage-1-duration ease-out,
+                   pvt_amitie_counter_inner_magic_circle_post $stage-2-duration ease-in $stage-1-duration;
+
+    }
+
+}
