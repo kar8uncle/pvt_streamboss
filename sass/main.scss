@@ -11,7 +11,6 @@
     #main {
         @include aspect_ratio(100, 20);
         @include valign;
-        left: 0; right: 0;
-        margin-left: 5px; margin-right: 5px; 
+        @include halign(1vw, 3vw);
     }
 }

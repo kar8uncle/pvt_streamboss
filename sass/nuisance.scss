@@ -20,7 +20,7 @@ $NUISANCE_DIR: '../images/nuisance/';
     @for $type from 0 through $NUISANCE_TYPE_COUNT {
         .nuisance-type-#{$type} {
             position: absolute;
-            @include valign;
+            @include valign(-100%, -100%);
 
             @each $nuisance-style in puyo, tetris, putet {
                 &.#{$nuisance-style} {

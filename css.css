@@ -3,8 +3,8 @@
   position: absolute;
   margin-top: auto;
   margin-bottom: auto;
-  top: -100%;
-  bottom: -100%;
+  top: 0;
+  bottom: 0;
   /* each .nuisance is fixed size, but the nuisance *
    * image can be bigger than that and overflows    */
   overflow: visible;
@@ -137,8 +137,8 @@
   position: absolute;
   margin-top: auto;
   margin-bottom: auto;
-  top: -100%;
-  bottom: -100%; }
+  top: 0;
+  bottom: 0; }
 
 .nuisance_effect, #nuisance_queue {
   /* 6 nuisance to be displayed, 1 line, *
@@ -156,8 +156,8 @@
   position: absolute;
   margin-top: auto;
   margin-bottom: auto;
-  top: -100%;
-  bottom: -100%; }
+  top: 0;
+  bottom: 0; }
 
 @keyframes queue_recalc {
   from {
@@ -171,8 +171,8 @@
   position: absolute;
   margin-top: auto;
   margin-bottom: auto;
-  top: -100%;
-  bottom: -100%;
+  top: 0;
+  bottom: 0;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -262,8 +262,8 @@ div.confetti.animate {
   position: absolute;
   margin-top: auto;
   margin-bottom: auto;
-  top: -100%;
-  bottom: -100%;
+  top: 0;
+  bottom: 0;
   animation: pvt_amitie_counter_animation_cutin 4s ease, disappear 1s linear 4s infinite; }
 @keyframes pvt_amitie_counter_animation_cutin {
   0% {
@@ -309,11 +309,11 @@ div.confetti.animate {
   100% {
     top: -100%; } }
     .spell.pvt.amitie .starry-sky .stars-1 {
-      box-shadow: 42vw 17vh white, 56vw 74vh white, 69vw 40vh white, 43vw 41vh white, 55vw 29vh white, 5vw 65vh white, 3vw 59vh white, 71vw 39vh white, 18vw 56vh white, 35vw 49vh white, 51vw 24vh white, 19vw 49vh white, 75vw 34vh white, 40vw 62vh white, 15vw 50vh white, 38vw 32vh white, 85vw 40vh white, 39vw 46vh white, 17vw 75vh white, 31vw 68vh white, 32vw 16vh white, 40vw 51vh white, 51vw 78vh white, 15vw 58vh white, 69vw 97vh white, 13vw 86vh white, 39vw 23vh white, 76vw 2vh white, 39vw 18vh white, 73vw 99vh white, 3vw 78vh white, 15vw 38vh white, 77vw 89vh white, 55vw 38vh white, 51vw 18vh white, 54vw 41vh white, 58vw 63vh white, 83vw 46vh white, 73vw 74vh white, 8vw 58vh white, 41vw 67vh white, 58vw 95vh white, 23vw 7vh white, 89vw 85vh white, 18vw 59vh white, 6vw 60vh white, 46vw 77vh white, 57vw 60vh white, 53vw 93vh white, 87vw 33vh white, 45vw 65vh white, 42vw 75vh white, 92vw 3vh white, 22vw 73vh white, 62vw 71vh white, 43vw 90vh white, 2vw 9vh white, 25vw 16vh white, 53vw 91vh white, 80vw 49vh white, 22vw 50vh white, 12vw 83vh white, 79vw 69vh white, 70vw 53vh white, 24vw 6vh white, 8vw 78vh white, 3vw 65vh white, 89vw 84vh white, 62vw 52vh white, 37vw 62vh white, 29vw 34vh white, 73vw 23vh white, 76vw 35vh white, 26vw 47vh white, 89vw 58vh white, 87vw 67vh white, 16vw 20vh white, 74vw 79vh white, 80vw 44vh white, 54vw 73vh white, 16vw 60vh white, 51vw 84vh white, 49vw 16vh white, 25vw 67vh white, 51vw 73vh white, 52vw 43vh white, 8vw 71vh white, 8vw 68vh white, 34vw 42vh white, 5vw 21vh white, 85vw 11vh white, 53vw 94vh white, 55vw 78vh white, 40vw 9vh white, 6vw 30vh white, 30vw 4vh white, 4vw 20vh white, 43vw 63vh white, 6vw 46vh white, 3vw 45vh white, 69vw 91vh white, 15vw 71vh white, 5vw 19vh white, 95vw 97vh white, 82vw 80vh white, 80vw 1vh white, 37vw 26vh white, 1vw 69vh white, 83vw 91vh white, 21vw 21vh white, 5vw 50vh white, 73vw 66vh white, 58vw 44vh white, 75vw 58vh white, 78vw 95vh white, 53vw 38vh white, 30vw 21vh white, 65vw 71vh white, 49vw 63vh white, 76vw 81vh white, 14vw 72vh white, 76vw 15vh white, 87vw 20vh white, 29vw 39vh white, 28vw 78vh white, 79vw 12vh white, 24vw 62vh white, 37vw 49vh white, 67vw 33vh white, 53vw 5vh white, 35vw 14vh white, 73vw 17vh white, 76vw 96vh white, 41vw 14vh white, 89vw 21vh white, 53vw 43vh white, 7vw 28vh white, 50vw 44vh white, 62vw 89vh white, 63vw 88vh white, 100vw 25vh white, 84vw 85vh white, 29vw 73vh white, 56vw 38vh white, 38vw 78vh white, 67vw 55vh white, 76vw 52vh white, 68vw 34vh white, 30vw 85vh white, 96vw 72vh white, 40vw 1vh white, 71vw 93vh white, 73vw 22vh white, 32vw 16vh white, 74vw 91vh white, 28vw 27vh white, 83vw 28vh white, 99vw 22vh white, 84vw 74vh white, 25vw 3vh white, 87vw 74vh white, 99vw 52vh white, 94vw 30vh white, 39vw 61vh white, 10vw 98vh white, 86vw 92vh white, 68vw 2vh white, 19vw 35vh white, 67vw 93vh white, 79vw 75vh white, 74vw 25vh white, 66vw 62vh white, 43vw 18vh white, 69vw 77vh white, 49vw 11vh white, 41vw 32vh white, 76vw 43vh white, 45vw 90vh white, 7vw 56vh white, 24vw 39vh white, 2vw 23vh white, 38vw 74vh white, 7vw 30vh white, 6vw 97vh white, 33vw 64vh white, 78vw 70vh white, 70vw 59vh white, 7vw 76vh white, 34vw 47vh white, 35vw 63vh white, 62vw 71vh white, 16vw 24vh white, 3vw 12vh white, 20vw 34vh white, 17vw 26vh white, 8vw 40vh white, 19vw 50vh white, 30vw 20vh white, 25vw 4vh white, 91vw 83vh white;
-      animation: pvt-amitie-stars-movement 46s linear infinite; }
+      box-shadow: 32vw 88vh white, 70vw 63vh white, 78vw 46vh white, 32vw 96vh white, 59vw 28vh white, 82vw 31vh white, 66vw 47vh white, 98vw 27vh white, 64vw 4vh white, 55vw 17vh white, 45vw 12vh white, 30vw 87vh white, 58vw 58vh white, 5vw 22vh white, 39vw 26vh white, 46vw 30vh white, 17vw 57vh white, 26vw 84vh white, 61vw 72vh white, 8vw 19vh white, 23vw 42vh white, 70vw 48vh white, 83vw 51vh white, 42vw 72vh white, 47vw 42vh white, 32vw 31vh white, 83vw 30vh white, 80vw 72vh white, 90vw 34vh white, 95vw 93vh white, 3vw 49vh white, 71vw 16vh white, 64vw 13vh white, 82vw 100vh white, 13vw 1vh white, 25vw 4vh white, 23vw 63vh white, 78vw 91vh white, 91vw 14vh white, 21vw 17vh white, 20vw 56vh white, 74vw 4vh white, 41vw 97vh white, 16vw 23vh white, 29vw 12vh white, 31vw 14vh white, 3vw 24vh white, 76vw 72vh white, 35vw 20vh white, 48vw 50vh white, 58vw 17vh white, 53vw 23vh white, 12vw 10vh white, 45vw 69vh white, 10vw 20vh white, 13vw 33vh white, 80vw 78vh white, 24vw 2vh white, 17vw 50vh white, 93vw 20vh white, 74vw 22vh white, 42vw 54vh white, 35vw 8vh white, 64vw 86vh white, 86vw 40vh white, 78vw 30vh white, 69vw 46vh white, 93vw 37vh white, 64vw 94vh white, 68vw 91vh white, 73vw 55vh white, 93vw 47vh white, 53vw 66vh white, 41vw 18vh white, 65vw 19vh white, 32vw 2vh white, 96vw 51vh white, 1vw 72vh white, 90vw 93vh white, 27vw 32vh white, 18vw 26vh white, 47vw 60vh white, 9vw 75vh white, 92vw 28vh white, 4vw 89vh white, 62vw 39vh white, 74vw 79vh white, 91vw 64vh white, 93vw 48vh white, 69vw 52vh white, 22vw 17vh white, 70vw 63vh white, 93vw 78vh white, 5vw 56vh white, 33vw 92vh white, 87vw 94vh white, 19vw 20vh white, 23vw 29vh white, 17vw 81vh white, 3vw 1vh white, 67vw 61vh white, 19vw 7vh white, 13vw 8vh white, 34vw 16vh white, 27vw 30vh white, 5vw 31vh white, 56vw 25vh white, 25vw 24vh white, 14vw 70vh white, 4vw 46vh white, 19vw 30vh white, 73vw 10vh white, 34vw 28vh white, 27vw 48vh white, 20vw 58vh white, 49vw 1vh white, 91vw 19vh white, 3vw 63vh white, 30vw 63vh white, 98vw 57vh white, 90vw 56vh white, 68vw 9vh white, 75vw 82vh white, 99vw 22vh white, 95vw 80vh white, 36vw 5vh white, 12vw 16vh white, 68vw 65vh white, 18vw 32vh white, 72vw 5vh white, 94vw 48vh white, 78vw 19vh white, 16vw 36vh white, 23vw 71vh white, 68vw 18vh white, 71vw 82vh white, 54vw 80vh white, 83vw 98vh white, 11vw 16vh white, 65vw 17vh white, 17vw 71vh white, 53vw 70vh white, 75vw 7vh white, 78vw 55vh white, 45vw 27vh white, 45vw 40vh white, 29vw 68vh white, 43vw 49vh white, 81vw 9vh white, 96vw 55vh white, 36vw 55vh white, 94vw 57vh white, 67vw 20vh white, 29vw 68vh white, 35vw 23vh white, 63vw 50vh white, 31vw 57vh white, 82vw 68vh white, 17vw 24vh white, 24vw 41vh white, 77vw 38vh white, 53vw 89vh white, 26vw 62vh white, 20vw 77vh white, 52vw 11vh white, 64vw 72vh white, 94vw 67vh white, 75vw 93vh white, 75vw 16vh white, 23vw 73vh white, 68vw 14vh white, 95vw 71vh white, 71vw 22vh white, 51vw 38vh white, 18vw 62vh white, 5vw 48vh white, 100vw 88vh white, 59vw 67vh white, 2vw 2vh white, 55vw 7vh white, 43vw 23vh white, 10vw 22vh white, 47vw 72vh white, 15vw 66vh white, 13vw 56vh white, 86vw 18vh white, 73vw 75vh white, 26vw 38vh white, 42vw 60vh white, 46vw 20vh white, 21vw 7vh white, 35vw 57vh white, 72vw 31vh white, 40vw 31vh white, 35vw 43vh white, 65vw 91vh white, 98vw 10vh white, 78vw 95vh white, 5vw 43vh white, 86vw 4vh white;
+      animation: pvt-amitie-stars-movement 52s linear infinite; }
     .spell.pvt.amitie .starry-sky .stars-2 {
-      box-shadow: 97vw 88vh white, 42vw 72vh white, 74vw 93vh white, 27vw 40vh white, 45vw 49vh white, 31vw 89vh white, 18vw 20vh white, 62vw 90vh white, 92vw 39vh white, 40vw 30vh white, 91vw 85vh white, 19vw 98vh white, 56vw 80vh white, 76vw 66vh white, 69vw 87vh white, 52vw 77vh white, 12vw 92vh white, 6vw 13vh white, 62vw 41vh white, 63vw 29vh white, 68vw 98vh white, 25vw 12vh white, 20vw 85vh white, 59vw 18vh white, 93vw 37vh white, 72vw 13vh white, 58vw 30vh white, 26vw 83vh white, 94vw 86vh white, 89vw 13vh white, 66vw 75vh white, 21vw 31vh white, 60vw 33vh white, 61vw 11vh white, 37vw 12vh white, 90vw 60vh white, 79vw 3vh white, 47vw 95vh white, 92vw 44vh white, 100vw 41vh white, 33vw 10vh white, 60vw 91vh white, 57vw 12vh white, 77vw 20vh white, 20vw 97vh white, 62vw 24vh white, 77vw 85vh white, 61vw 46vh white, 75vw 86vh white, 20vw 10vh white, 50vw 94vh white, 5vw 27vh white, 40vw 55vh white, 74vw 80vh white, 50vw 56vh white, 35vw 40vh white, 95vw 1vh white, 67vw 56vh white, 68vw 77vh white, 54vw 52vh white, 68vw 67vh white, 17vw 90vh white, 25vw 12vh white, 24vw 62vh white, 77vw 41vh white, 43vw 36vh white, 17vw 5vh white, 15vw 42vh white, 61vw 9vh white, 82vw 80vh white, 51vw 6vh white, 99vw 56vh white, 75vw 73vh white, 92vw 40vh white, 3vw 2vh white, 10vw 30vh white, 72vw 83vh white, 41vw 11vh white, 81vw 89vh white, 50vw 36vh white, 20vw 30vh white, 40vw 57vh white, 22vw 57vh white, 69vw 7vh white, 60vw 57vh white, 73vw 21vh white, 76vw 52vh white, 23vw 36vh white, 88vw 36vh white, 72vw 85vh white, 52vw 82vh white, 33vw 85vh white, 90vw 17vh white, 98vw 95vh white, 57vw 26vh white, 25vw 44vh white, 59vw 45vh white, 36vw 89vh white, 96vw 78vh white, 29vw 66vh white, 51vw 34vh white, 1vw 34vh white, 63vw 51vh white, 49vw 92vh white, 63vw 83vh white, 22vw 31vh white, 32vw 96vh white, 47vw 32vh white, 81vw 52vh white, 48vw 23vh white, 12vw 15vh white, 46vw 98vh white, 20vw 55vh white, 50vw 11vh white, 74vw 61vh white, 92vw 84vh white, 52vw 89vh white, 77vw 86vh white, 81vw 24vh white, 16vw 81vh white, 7vw 30vh white, 19vw 28vh white, 81vw 38vh white, 12vw 28vh white, 40vw 46vh white, 95vw 24vh white, 63vw 8vh white, 16vw 8vh white, 49vw 14vh white, 13vw 18vh white, 35vw 86vh white, 29vw 52vh white, 10vw 64vh white, 13vw 39vh white, 38vw 44vh white, 30vw 76vh white, 7vw 13vh white, 98vw 63vh white, 40vw 9vh white, 77vw 15vh white, 39vw 43vh white, 85vw 7vh white, 27vw 95vh white, 27vw 2vh white, 5vw 89vh white, 13vw 88vh white, 8vw 5vh white, 12vw 56vh white, 92vw 80vh white, 73vw 99vh white, 39vw 98vh white, 36vw 45vh white, 30vw 70vh white, 96vw 86vh white, 48vw 93vh white, 97vw 35vh white, 89vw 51vh white, 38vw 20vh white, 56vw 80vh white, 62vw 13vh white, 39vw 70vh white, 33vw 98vh white, 58vw 75vh white, 39vw 30vh white, 42vw 37vh white, 67vw 8vh white, 49vw 100vh white, 37vw 64vh white, 90vw 61vh white, 7vw 22vh white, 98vw 59vh white, 19vw 48vh white, 91vw 92vh white, 53vw 36vh white, 56vw 71vh white, 46vw 24vh white, 60vw 68vh white, 91vw 7vh white, 10vw 79vh white, 35vw 52vh white, 86vw 19vh white, 100vw 3vh white, 75vw 90vh white, 77vw 14vh white, 24vw 34vh white, 42vw 52vh white, 5vw 89vh white, 1vw 64vh white, 54vw 57vh white, 20vw 1vh white, 32vw 32vh white, 49vw 32vh white, 33vw 31vh white, 65vw 5vh white, 53vw 56vh white, 20vw 66vh white, 100vw 87vh white, 20vw 52vh white, 18vw 72vh white, 73vw 59vh white;
-      animation: pvt-amitie-stars-movement 33s linear infinite; }
+      box-shadow: 6vw 96vh white, 84vw 53vh white, 84vw 26vh white, 32vw 47vh white, 90vw 87vh white, 88vw 81vh white, 63vw 63vh white, 30vw 25vh white, 27vw 7vh white, 45vw 55vh white, 27vw 36vh white, 19vw 25vh white, 28vw 82vh white, 22vw 42vh white, 5vw 24vh white, 53vw 50vh white, 87vw 90vh white, 59vw 62vh white, 68vw 45vh white, 32vw 80vh white, 47vw 71vh white, 1vw 41vh white, 89vw 26vh white, 91vw 72vh white, 32vw 82vh white, 49vw 62vh white, 87vw 85vh white, 58vw 99vh white, 19vw 1vh white, 69vw 14vh white, 35vw 50vh white, 13vw 37vh white, 62vw 36vh white, 82vw 77vh white, 32vw 77vh white, 77vw 69vh white, 1vw 78vh white, 83vw 55vh white, 66vw 15vh white, 94vw 21vh white, 10vw 41vh white, 30vw 18vh white, 62vw 92vh white, 33vw 38vh white, 79vw 33vh white, 56vw 34vh white, 95vw 20vh white, 90vw 53vh white, 1vw 19vh white, 34vw 43vh white, 18vw 89vh white, 1vw 17vh white, 83vw 95vh white, 1vw 94vh white, 14vw 61vh white, 72vw 46vh white, 46vw 25vh white, 9vw 39vh white, 71vw 1vh white, 24vw 58vh white, 5vw 44vh white, 6vw 41vh white, 1vw 11vh white, 86vw 65vh white, 84vw 17vh white, 3vw 69vh white, 95vw 13vh white, 74vw 67vh white, 86vw 46vh white, 77vw 33vh white, 37vw 92vh white, 98vw 43vh white, 14vw 11vh white, 82vw 21vh white, 61vw 35vh white, 86vw 17vh white, 29vw 58vh white, 65vw 47vh white, 60vw 81vh white, 31vw 50vh white, 48vw 70vh white, 28vw 62vh white, 1vw 72vh white, 50vw 28vh white, 88vw 7vh white, 87vw 16vh white, 85vw 57vh white, 75vw 35vh white, 61vw 95vh white, 26vw 37vh white, 10vw 47vh white, 69vw 22vh white, 1vw 32vh white, 43vw 14vh white, 92vw 58vh white, 95vw 81vh white, 4vw 51vh white, 82vw 15vh white, 99vw 64vh white, 23vw 96vh white, 24vw 81vh white, 100vw 13vh white, 66vw 72vh white, 82vw 51vh white, 85vw 9vh white, 18vw 33vh white, 80vw 61vh white, 3vw 82vh white, 6vw 100vh white, 10vw 84vh white, 22vw 72vh white, 73vw 35vh white, 27vw 62vh white, 21vw 80vh white, 81vw 82vh white, 64vw 19vh white, 19vw 75vh white, 71vw 24vh white, 91vw 33vh white, 98vw 47vh white, 25vw 39vh white, 14vw 9vh white, 8vw 35vh white, 64vw 59vh white, 19vw 46vh white, 12vw 31vh white, 17vw 41vh white, 52vw 84vh white, 44vw 88vh white, 27vw 68vh white, 61vw 89vh white, 8vw 55vh white, 14vw 49vh white, 77vw 56vh white, 78vw 14vh white, 88vw 49vh white, 22vw 20vh white, 17vw 37vh white, 89vw 95vh white, 85vw 41vh white, 8vw 14vh white, 20vw 6vh white, 21vw 67vh white, 61vw 95vh white, 22vw 58vh white, 85vw 17vh white, 72vw 87vh white, 2vw 10vh white, 18vw 95vh white, 66vw 35vh white, 95vw 77vh white, 2vw 31vh white, 63vw 72vh white, 81vw 62vh white, 98vw 78vh white, 3vw 4vh white, 33vw 48vh white, 35vw 84vh white, 25vw 71vh white, 95vw 33vh white, 68vw 48vh white, 91vw 77vh white, 44vw 16vh white, 13vw 71vh white, 55vw 78vh white, 20vw 16vh white, 39vw 41vh white, 12vw 2vh white, 13vw 92vh white, 9vw 61vh white, 84vw 6vh white, 96vw 46vh white, 20vw 18vh white, 46vw 15vh white, 15vw 92vh white, 10vw 15vh white, 12vw 55vh white, 41vw 61vh white, 84vw 91vh white, 21vw 42vh white, 84vw 33vh white, 11vw 56vh white, 38vw 12vh white, 73vw 97vh white, 85vw 60vh white, 34vw 79vh white, 26vw 59vh white, 58vw 71vh white, 26vw 19vh white, 75vw 57vh white, 49vw 76vh white, 37vw 51vh white, 49vw 25vh white, 25vw 2vh white, 36vw 27vh white, 7vw 25vh white, 53vw 34vh white, 91vw 93vh white, 89vw 77vh white, 87vw 49vh white;
+      animation: pvt-amitie-stars-movement 25s linear infinite; }
   .spell.pvt.amitie .character {
     display: inline-block;
     position: absolute;
@@ -421,8 +421,8 @@ div.confetti.animate {
     position: absolute;
     margin-top: auto;
     margin-bottom: auto;
-    top: -100%;
-    bottom: -100%;
+    top: 0;
+    bottom: 0;
     opacity: 0;
     animation: pvt_amitie_counter_outer_magic_circle_spin 10s linear infinite, pvt_amitie_counter_outer_magic_circle_pre 3s ease-out, pvt_amitie_counter_outer_magic_circle_post 1s ease-in 3s; }
 @keyframes pvt_amitie_counter_outer_magic_circle_spin {
@@ -467,8 +467,8 @@ div.confetti.animate {
     position: absolute;
     margin-top: auto;
     margin-bottom: auto;
-    top: -100%;
-    bottom: -100%;
+    top: 0;
+    bottom: 0;
     opacity: 0;
     animation: pvt_amitie_counter_inner_magic_circle_spin 10s linear infinite, pvt_amitie_counter_inner_magic_circle_pre 3s ease-out, pvt_amitie_counter_inner_magic_circle_post 1s ease-in 3s; }
 @keyframes pvt_amitie_counter_inner_magic_circle_spin {
@@ -537,11 +537,12 @@ div.confetti.animate {
     position: absolute;
     margin-top: auto;
     margin-bottom: auto;
-    top: -100%;
-    bottom: -100%;
-    left: 0;
-    right: 0;
-    margin-left: 5px;
-    margin-right: 5px; }
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 1vw;
+    right: 3vw; }
 
 /*# sourceMappingURL=css.css.map */
