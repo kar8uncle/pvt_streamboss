@@ -89,7 +89,7 @@ def output_content(html, output, css, js, fields):
                                     boss_img: bossAvatar,
                                     boss_name: 'Carbuncle',
                                     created_at: getFormattedDateString(createDate = new Date()),
-                                    current_health: '' + initialHealth,
+                                    current_health: '' + (currentHealth = initialHealth),
                                     incr_amount: null,
                                     mode: 'fixed',
                                     multiplier: 1,

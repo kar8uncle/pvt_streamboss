@@ -130,10 +130,10 @@
     }
 
     function displayAttackEffect() {
-        let $nuisanceEffect = $('<div></div>')
+        let $nuisanceEffect = $('<div/>')
             .addClass('nuisance_effect')
             .append(['ring', 'blast', 'confetti']
-                        .map(className => $('<div></div>')
+                        .map(className => $('<div/>')
                                             .addClass([className, 'animate'].join(' '))
                                             .append($('<img>').addClass(className))
                         )
@@ -144,17 +144,85 @@
         delay(1500).then(() => $nuisanceEffect.remove());
     }
 
-    function recalculate(prevCount, currCount) {
+    function recalculate(prevOverride, currOverride) {
+        let prev = prevOverride !== undefined ? prevOverride : prevCount;
+        let curr = currOverride !== undefined ? currOverride : currCount;
         delay(0).then(displayQueueRecalcAnimation);
-        let damage = Math.abs(prevCount - currCount);
-        if (prevCount != 0 && damage != 0) {
+        let damage = prev - curr;
+        if (damage > 0) {
             delay(timing.attackFxDelay).then(() => displayAttackEffect(damage));
             delay(timing.soundFxDelay).then(() => playDamageSoundEffect(damage));
         }
-        delay(timing.symbolUpdateDelay).then(() => updateSymbols(currCount));
+        return delay(timing.symbolUpdateDelay).then(() => updateSymbols(curr));
     }
 
-    function killBoss(newCount) {
+    function populate() {
+        let $generateFx = $('<div/>').addClass('generate_fx').append(
+            $('<div/>').addClass('cloud').append(
+                $('<div/><div/><div/><div/>')
+            ).append(
+                $('<div/><div/>').addClass('dark')
+            )
+        ).append(
+            $('<div/>').addClass('fire').append(
+                $('<div/><div/>')
+            )
+        );
+
+        let $generate = $('<div/>').addClass('generate').append(
+            Array.from(Array(6), () => $generateFx.clone())
+        ).appendTo($('.queue_wrapper'));
+
+        let audioElm = $('#sound-fx-nuisance-generate')[0].cloneNode(true);
+        audioElm.volume = soundFxVolume;
+        audioElm.play();
+
+        return delay(200).then(() => recalculate())
+                         .then(() => delay(600))
+                         .then(() => $generate.remove());
+    }
+
+    function updateCount(newCount) {
+        if (!willRecalc) {
+            prevCount = currCount;
+        }
+        currCount = newCount;
+    }
+
+    function loadBoss(health) {
+        updateCount(health);
+        if (willRecalc) {
+            return;
+        }
+
+        willRecalc = true;
+        delay(0).then(populate)
+                .then(() => willRecalc = false);
+    }
+
+    function damageBoss(newHealth) {
+        updateCount(newHealth);
+        if (willRecalc) {
+            return;
+        }
+        
+        willRecalc = true;
+        delay(0)
+            .then(() => recalculate())
+            .then(() => willRecalc = false);
+    }
+
+    function killBoss(nextHealth) {
+        // store the prev count in case another event comes and messes with it
+        var prev = prevCount;
+        updateCount(0);
+
+        if (willRecalc) {
+            return;
+        }
+
+        willRecalc = true;
+
         let animationPromise;
         if (bossKillAnimationKey) {
             let $treeClone = animationTree[bossKillAnimationKey].clone().appendTo($('#main'));
@@ -162,24 +230,29 @@
         } else {
             animationPromise = delay(0);
         }
-        animationPromise
-            .then(() => recalculate(currentHealth, currentHealth = 0))
-            .then(() => delay(1000))
-            .then(() => recalculate(currentHealth, currentHealth = newCount));
+
+        animationPromise.then(() => recalculate(prev, 0))
+                        .then(() => delay(2000))
+                        .then(() => currCount == 0 ? updateCount(nextHealth) : null)
+                        .then(populate)
+                        .then(() => willRecalc = false);
     }
 
-    let currentHealth = 0;
+    let prevCount = 0;
+    let currCount = 0;
+    let willRecalc = false;
+
     document.addEventListener('bossLoad', 
         bossInfo => populateCustomFields(bossInfo.detail.settings.custom_json)
     );
     document.addEventListener('bossLoad', 
-        bossInfo => recalculate(0, currentHealth = +bossInfo.detail.current_health)
+        bossInfo => loadBoss(+bossInfo.detail.current_health)
     );
     document.addEventListener('bossDamaged',
-        bossInfo => recalculate(currentHealth, currentHealth = bossInfo.detail.boss.current_health)
+        bossInfo => damageBoss(+bossInfo.detail.boss.current_health)
     );
     document.addEventListener('bossKilled',
-        bossInfo => killBoss(bossInfo.detail.boss.current_health)
+        bossInfo => killBoss(+bossInfo.detail.boss.current_health)
     );
 
 })();

@@ -19,13 +19,13 @@
     top: #{$top}; bottom: #{$bottom};
 }
 
-@mixin pseudo_img($path, $pseudo_class: "::before") {
-    &#{unquote($pseudo_class)} {
+@mixin pseudo_img($path, $background_size: "contain", $ratio_w: pngwidth($path), $ratio_h: pngheight($path)) {
+    &:before {
         content: "";
         display: block;
         background: url64($path) no-repeat;
-        background-size: contain;
-        @include aspect_ratio(pngwidth($path), pngheight($path));
+        background-size: #{unquote($background_size)};
+        @include aspect_ratio($ratio_w, $ratio_h);
     }
 
     display: inline-block;
