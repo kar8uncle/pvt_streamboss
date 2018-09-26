@@ -2,6 +2,7 @@
 
 .queue_bg {
     box-sizing: border-box;
+    display: custom_field('show_queue_bg');
     height: 100%;
     @include halign;
     overflow: hidden;

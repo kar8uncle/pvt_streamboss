@@ -224,7 +224,7 @@
         willRecalc = true;
 
         let animationPromise;
-        if (bossKillAnimationKey) {
+        if (bossKillAnimationKey != 'none') {
             let $treeClone = animationTree[bossKillAnimationKey].clone().appendTo($('#main'));
             animationPromise = delay(4000).then(() => $treeClone.remove());
         } else {

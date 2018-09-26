@@ -1,4 +1,13 @@
 {
+    "show_queue_bg": {
+        "label": "Show Nuisance Queue BG",
+        "type": "dropdown",
+        "options": {
+            "initial": "Yes",
+            "none": "No"
+        },
+        "value": "none"
+    },
     "queue_gradient_start": {
         "label": "Nuisance Queue BG Gradient Start Color",
         "type": "colorpicker",
@@ -199,7 +208,7 @@
         "label": "Boss Kill Animation",
         "type": "dropdown",
         "options": {
-            "": "None",
+            "none": "None",
             "pvt_amitie": "PvT Amitie Counter"
         },
         "value": "pvt_amitie"
